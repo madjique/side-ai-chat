@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useTheme } from '~/shared/hooks/useTheme'
 import { useSettingsStore } from '~/shared/stores/settingsStore'
+import { useLLMStore } from '~/shared/stores/llmStore'
+import { PRESET_LLMS } from '~/shared/config/llmConfig'
 import { OnboardingFlow } from '~/features/onboarding'
 import { LLMSelector } from '~/features/llm-selector'
 import { LLMViewer } from '~/features/llm-viewer'
@@ -11,7 +13,22 @@ import './styles/global.css'
 export default function SidePanel() {
   useTheme()
   const onboardingComplete = useSettingsStore(s => s.onboardingComplete)
+  const selectedId = useLLMStore(s => s.selectedId)
+  const customProviders = useLLMStore(s => s.customProviders)
   const [refreshKey, setRefreshKey] = useState(0)
+
+  const providers = useMemo(() => [...PRESET_LLMS, ...customProviders], [customProviders])
+  const selected = useMemo(() => {
+    if (!selectedId) return null
+    return providers.find(p => p.id === selectedId) ?? null
+  }, [selectedId, providers])
+
+  const handleOpenInTab = () => {
+    if (selected?.url) {
+      chrome.tabs.create({ url: selected.url })
+      window.close()
+    }
+  }
 
   if (!onboardingComplete) {
     return <OnboardingFlow />
@@ -28,6 +45,14 @@ export default function SidePanel() {
             title="Refresh"
           >
             <Icon name="refresh" size={18} />
+          </button>
+          <button 
+            className="icon-btn" 
+            onClick={handleOpenInTab}
+            title="Open in new tab"
+            disabled={!selected}
+          >
+            <Icon name="open_in_new" size={18} />
           </button>
         </div>
         <SettingsMenu />

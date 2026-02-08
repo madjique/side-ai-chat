@@ -112,3 +112,5 @@ Add new capabilities as new features under `src/features/`.
 | 2026-02-08 | LLM embedding | declarativeNetRequest dynamic rules to strip X-Frame-Options |
 | 2026-02-08 | Design refresh | Glassmorphism, official LLM logos, refined animations |
 | 2026-02-09 | Iframe compatibility | Comprehensive header rules (CORS, Sec-Fetch spoofing) |
+| 2026-02-09 | Auto-favicon | Custom LLMs auto-fetch favicon via Google service |
+| 2026-02-09 | Open in tab | Button to open LLM in new tab + close side panel |
