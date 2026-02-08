@@ -8,6 +8,16 @@ type Props = {
   onClose: () => void
 }
 
+function getFaviconUrl(url: string): string {
+  try {
+    const domain = new URL(url).hostname
+    // Use Google's favicon service - works for most sites
+    return `https://www.google.com/s2/favicons?domain=${domain}&sz=64`
+  } catch {
+    return ''
+  }
+}
+
 export function AddCustomLLM({ onClose }: Props) {
   const [name, setName] = useState('')
   const [url, setUrl] = useState('')
@@ -16,10 +26,13 @@ export function AddCustomLLM({ onClose }: Props) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (name && url) {
-      addCustomProvider({ name, url, icon: 'language' })
+      const logo = getFaviconUrl(url)
+      addCustomProvider({ name, url, icon: 'language', logo: logo || undefined })
       onClose()
     }
   }
+
+  const previewLogo = url ? getFaviconUrl(url) : ''
 
   return (
     <Dialog.Root open onOpenChange={onClose}>
@@ -41,14 +54,25 @@ export function AddCustomLLM({ onClose }: Props) {
             </div>
             <div className="form-field">
               <label htmlFor="url">URL</label>
-              <input
-                id="url"
-                type="url"
-                value={url}
-                onChange={e => setUrl(e.target.value)}
-                placeholder="https://example.com/chat"
-                required
-              />
+              <div className="url-input-wrapper">
+                {previewLogo && (
+                  <img 
+                    src={previewLogo} 
+                    alt="" 
+                    className="url-favicon-preview"
+                    onError={(e) => (e.currentTarget.style.display = 'none')}
+                  />
+                )}
+                <input
+                  id="url"
+                  type="url"
+                  value={url}
+                  onChange={e => setUrl(e.target.value)}
+                  placeholder="https://example.com/chat"
+                  required
+                  style={{ paddingLeft: previewLogo ? '2.5rem' : undefined }}
+                />
+              </div>
             </div>
             <div className="dialog-actions">
               <Button type="button" variant="ghost" onClick={onClose}>Cancel</Button>
