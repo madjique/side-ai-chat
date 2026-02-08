@@ -1,0 +1,129 @@
+.onboarding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+  background: var(--bg);
+}
+
+.welcome-card {
+  text-align: center;
+  padding: 2.5rem 2rem;
+  background: var(--surface);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  max-width: 320px;
+  animation: fadeIn 0.4s ease;
+}
+
+.welcome-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  border-radius: 16px;
+}
+
+.welcome-icon .material-symbols-outlined {
+  font-size: 32px;
+  color: white;
+}
+
+.welcome-card h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.welcome-card p {
+  color: var(--text-secondary);
+  margin-bottom: 1.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.welcome-footer {
+  margin-top: 2rem;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.select-content {
+  text-align: center;
+  width: 100%;
+  max-width: 360px;
+  animation: fadeIn 0.3s ease;
+}
+
+.select-content h2 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  margin-bottom: 0.375rem;
+}
+
+.select-content > p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-size: 0.9375rem;
+}
+
+.llm-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.llm-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.llm-card:hover {
+  background: var(--surface-hover);
+  border-color: var(--primary);
+}
+
+.llm-logo {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.llm-logo img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.llm-logo .material-symbols-outlined {
+  font-size: 32px;
+  color: var(--primary);
+}
+
+.llm-name {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

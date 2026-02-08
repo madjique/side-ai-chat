@@ -1,0 +1,35 @@
+{
+  "name": "side-ai-chat",
+  "displayName": "Side AI Chat",
+  "version": "0.1.0",
+  "description": "Access your favorite LLM chats in a convenient side panel",
+  "author": "",
+  "scripts": {
+    "dev": "plasmo dev",
+    "build": "plasmo build",
+    "package": "plasmo package"
+  },
+  "dependencies": {
+    "@radix-ui/react-dropdown-menu": "^2.1.4",
+    "@radix-ui/react-dialog": "^1.1.4",
+    "@radix-ui/react-select": "^2.1.4",
+    "@radix-ui/react-toggle-group": "^1.1.0",
+    "plasmo": "^0.90.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.287",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "typescript": "^5.7.3"
+  },
+  "manifest": {
+    "permissions": ["storage", "sidePanel", "declarativeNetRequest"],
+    "side_panel": {
+      "default_path": "sidepanel.html"
+    },
+    "host_permissions": ["<all_urls>"]
+  }
+}
