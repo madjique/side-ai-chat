@@ -40,6 +40,14 @@ export const PRESET_LLMS: LLMProvider[] = [
     id: 'mistral', 
     name: 'Mistral', 
     url: 'https://chat.mistral.ai', 
-    icon: 'air'
+    icon: 'air',
+    logo: 'https://www.google.com/s2/favicons?domain=chat.mistral.ai&sz=64'
+  },
+  {
+    id: 'grok',
+    name: 'Grok',
+    url: 'https://grok.com',
+    icon: 'bolt',
+    logo: 'https://www.google.com/s2/favicons?domain=grok.com&sz=64'
   }
 ]

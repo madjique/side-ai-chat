@@ -115,3 +115,4 @@ Add new capabilities as new features under `src/features/`.
 | 2026-02-09 | Auto-favicon | Custom LLMs auto-fetch favicon via Google service |
 | 2026-02-09 | Open in tab | Button to open LLM in new tab + close side panel |
 | 2026-02-09 | Session persistence | Keep LLM iframes alive when switching, preserve chat state |
+| 2026-02-09 | New LLM | Added Grok (grok.com) to presets |
