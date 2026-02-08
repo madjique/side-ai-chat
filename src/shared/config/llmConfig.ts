@@ -49,5 +49,12 @@ export const PRESET_LLMS: LLMProvider[] = [
     url: 'https://grok.com',
     icon: 'bolt',
     logo: 'https://www.google.com/s2/favicons?domain=grok.com&sz=64'
+  },
+  {
+    id: 'copilot',
+    name: 'Copilot',
+    url: 'https://copilot.microsoft.com',
+    icon: 'chat_bubble',
+    logo: 'https://www.google.com/s2/favicons?domain=copilot.microsoft.com&sz=64'
   }
 ]
