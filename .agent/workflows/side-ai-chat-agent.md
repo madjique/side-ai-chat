@@ -111,3 +111,4 @@ Add new capabilities as new features under `src/features/`.
 | 2026-02-08 | Extension type | Chrome Side Panel API (v114+) |
 | 2026-02-08 | LLM embedding | declarativeNetRequest dynamic rules to strip X-Frame-Options |
 | 2026-02-08 | Design refresh | Glassmorphism, official LLM logos, refined animations |
+| 2026-02-09 | Iframe compatibility | Comprehensive header rules (CORS, Sec-Fetch spoofing) |
